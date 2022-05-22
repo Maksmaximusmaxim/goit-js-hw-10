@@ -4,6 +4,7 @@ export function fetchCountries(name){
         if(respounce.ok){
           return respounce.json();
         }
-        }).then(countries =>{countries.map(country => console.log(country))} )
+        
+        })
 }
 
