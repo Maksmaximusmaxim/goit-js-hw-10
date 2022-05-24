@@ -24,6 +24,7 @@ input.addEventListener(`input`,debounce((e)=>{
     return
     }
     fetchCountries(textValue).then(listOfCountries => {
+        console.log(listOfCountries)
         if(listOfCountries.length > 10){
             Notiflix.Notify.info(`Too many matches found. Please enter a more specific name.`);  
         } else if(listOfCountries.length < 10 && listOfCountries.length > 2){
@@ -38,11 +39,14 @@ input.addEventListener(`input`,debounce((e)=>{
        
         }else if  (listOfCountries.length ===1){
             listOfCountries.map(c =>{
+             
+                  console.log(Object.values(c.languages) )
+              
                const codeHTMLOneCard =  `<ul>
                 <li class="ul__itemOneCard"><div><img src="${c.flags.png}" alt="страна" width="20" height="15"></div><p class="ul__tittle">${c.name.common}</p></li>
                 <li><p class="ul__text" ><span class="span">Capital:</span>${c.capital}</p></li>
                 <li><p class="ul__text"><span class="span">Population:</span>${c.population}</p></li>
-                <li><p class="ul__text"><span class="span">Languages:</span>${c.languages}</p></li>
+                <li><p class="ul__text"><span class="span">Languages:</span>${Object.values(c.languages).join(`,`)}</p></li>
               </ul> `
                 div.insertAdjacentHTML(`afterbegin`, codeHTMLOneCard);
                 
