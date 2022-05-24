@@ -3,6 +3,8 @@ export function fetchCountries(name){
     .then(respounce=>{
         if(respounce.ok){
           return respounce.json();
+        }  else{
+          throw new Error(respounce.message);
         }
         
         })
