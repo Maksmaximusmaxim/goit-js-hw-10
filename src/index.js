@@ -27,7 +27,7 @@ input.addEventListener(`input`,debounce((e)=>{
         console.log(listOfCountries)
         if(listOfCountries.length > 10){
             Notiflix.Notify.info(`Too many matches found. Please enter a more specific name.`);  
-        } else if(listOfCountries.length < 10 && listOfCountries.length > 2){
+        } else if(listOfCountries.length <= 10 && listOfCountries.length >= 2){ 
             console.log(`все ок`);
             listOfCountries.map(c => {const codeHTML = `<li class="ul__item">
              <div class="ul__imgBlock"><img src="${c.flags.svg}" width="20" height="15" /></div>
